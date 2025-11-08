@@ -1,4 +1,4 @@
-import { Home, GraduationCap, Briefcase, Mail, Github, Linkedin, Code2, Smartphone, FileText, Star, Award, Calendar, MapPin, Phone, Send, Brain, Users, Clock, Trophy, ArrowRight, Shield, BarChart3, Building, Cpu, Play, X, Maximize2 } from 'lucide-react';
+import { Home, GraduationCap, Briefcase, Mail, Github, Linkedin, Code2, Smartphone, FileText, Star, Award, Calendar, MapPin, Phone, Send, Brain, Users, Clock, Trophy, ArrowRight, Shield, BarChart3, Play, X, Maximize2 } from 'lucide-react';
 import { useState, useRef, useEffect } from 'react';
 import emailjs from 'emailjs-com';
 
@@ -567,7 +567,7 @@ export default function Layouts() {
 
               <div className="flex gap-4">
                 <a
-                  href="https://github.com/yaelaya/"
+                  href="https://github.com/yaelaya/DataIN"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 rounded-lg bg-white border border-slate-200 hover:bg-slate-50 transition-colors shadow-sm"
