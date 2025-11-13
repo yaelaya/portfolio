@@ -20,6 +20,7 @@ const projects = [
     tags: ['Blockchain', 'Smart Contracts', 'Web3', 'React', 'Node.js'],
     github: 'https://github.com/ayoubharati/medProject',
     video: `${MEDIA_BASE_URL}/Blockchain/blockchain.mp4`,
+    featured: true,
     status: 'En cours de publication',
     period: '02/2025-05/2025',
     icon: Shield,
@@ -31,6 +32,7 @@ const projects = [
     tags: ['Python', 'Machine Learning', 'Data Visualization', 'React', 'FastAPI'],
     github: 'https://github.com/yaelaya/DataIN',
     video: `${MEDIA_BASE_URL}/DataIN/datain_1.mp4`,
+    featured: true,
     period: 'Stage HCP - 06/2025-09/2025',
     icon: BarChart3,
     color: 'from-purple-500 to-blue-500'
@@ -44,6 +46,7 @@ const projects = [
       `${MEDIA_BASE_URL}/NLP/1.jpeg`,
       `${MEDIA_BASE_URL}/NLP/2.jpeg`
     ],
+    featured: true,
     status: 'Projet Académique Complet',
     period: 'Projet Data Mining - 2025',
     icon: Brain,
@@ -129,7 +132,7 @@ export default function Layouts() {
 
   // Stats data
   const stats = [
-    { number: '8+', label: 'Projets Académiques', icon: GraduationCap },
+    { number: '6+', label: 'Projets Académiques', icon: GraduationCap },
     { number: '2', label: 'Stages Professionnels', icon: Users },
     { number: '4+', label: 'Années d\'Études', icon: Clock }
   ];
@@ -149,7 +152,7 @@ export default function Layouts() {
     {
       icon: Award,
       title: 'Projets Académiques',
-      description: '8+ projets réalisés couvrant le développement web, mobile et les systèmes distribués'
+      description: '6+ projets réalisés couvrant le développement web, mobile et les systèmes distribués'
     }
   ];
 
@@ -256,7 +259,7 @@ export default function Layouts() {
   }, [zoomedMedia]);
 
   // Composant VideoPlayer amélioré avec fallback
-  const VideoPlayer = ({ videoUrl}: { videoUrl: string; title: string }) => {
+  const VideoPlayer = ({ videoUrl, title }: { videoUrl: string; title: string }) => {
     const [isPlaying, setIsPlaying] = useState(false);
     const [hasError, setHasError] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
