@@ -797,19 +797,21 @@ export default function Layouts() {
                 className="bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-200 hover:shadow-xl transition-all hover:-translate-y-2"
               >
                 <div className="p-6">
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="flex items-center gap-3">
-                      <div className={`w-10 h-10 bg-gradient-to-br ${project.color} rounded-lg flex items-center justify-center shadow-lg`}>
-                        <project.icon className="w-5 h-5 text-white" />
-                      </div>
-                      <h3 className="text-xl font-bold text-slate-800 flex-1 group-hover:text-blue-500 transition-colors">
-                        {project.title}
-                      </h3>
-                    </div>
-                    {project.featured && (
-                      <Star className="w-5 h-5 text-yellow-500 fill-current flex-shrink-0" />
-                    )}
-                  </div>
+                  {
+  title: 'Prédiction du Diabète - Machine Learning',
+  description: 'Analyse complète d\'un dataset médical avec techniques avancées de data mining. Développement de modèles prédictifs pour identifier les facteurs de risque du diabète, avec Random Forest atteignant un F1-score de 0.8845.',
+  tags: ['Python', 'Machine Learning', 'Data Mining', 'Random Forest', 'XGBoost', 'Data Analysis', 'CRISP-DM'],
+  github: 'https://github.com/yaelaya/diabetes-prediction-ml',
+  images: [
+    `${MEDIA_BASE_URL}/NLP/1.jpeg`,
+    `${MEDIA_BASE_URL}/NLP/2.jpeg`
+  ],
+  featured: true,  // ← ICI il est marqué comme featured
+  status: 'Projet Académique Complet',
+  period: 'Projet Data Mining - 2025',
+  icon: Brain,
+  color: 'from-orange-500 to-red-500'
+}
 
                   {project.status && (
                     <div className="inline-block bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-medium mb-3">
