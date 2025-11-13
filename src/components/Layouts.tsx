@@ -38,6 +38,18 @@ const projects = [
     color: 'from-purple-500 to-blue-500'
   },
   {
+    title: 'Prédiction du Diabète - Machine Learning',
+    description: 'Analyse complète d\'un dataset médical avec techniques avancées de data mining. Développement de modèles prédictifs pour identifier les facteurs de risque du diabète, avec Random Forest atteignant un F1-score de 0.8845.',
+    tags: ['Python', 'Machine Learning', 'Data Mining', 'Random Forest', 'XGBoost', 'Data Analysis', 'CRISP-DM'],
+    github: 'https://github.com/yaelaya/diabetes-prediction-ml',
+    report: `${MEDIA_BASE_URL}/diabetes/Rapport_NLP.pdf`,
+    featured: true,
+    status: 'Projet Académique Complet',
+    period: 'Projet Data Mining - 2025',
+    icon: Brain,
+    color: 'from-orange-500 to-red-500'
+  },
+  {
     title: 'Applications Mobiles Android',
     description: 'Développement d\'applications Android natives avec intégration d\'APIs REST, GraphQL et SOAP. Architecture MVVM et tests unitaires complets.',
     tags: ['Java', 'Android', 'Retrofit', 'GraphQL', 'REST', 'SOAP'],
@@ -588,7 +600,7 @@ export default function Layouts() {
 
             <div className="flex items-center gap-3">
               <a
-                href={`${MEDIA_BASE_URL}/CV.pdf`}
+                href={`${MEDIA_BASE_URL}/CV_.pdf`}
                 download="CV_Aya_EL_ABIDI.pdf"
                 className="flex items-center gap-2 px-4 py-2 bg-slate-800 text-white rounded-lg hover:bg-slate-700 transition-colors text-sm font-medium"
               >
