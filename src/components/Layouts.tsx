@@ -779,94 +779,94 @@ export default function Layouts() {
         </div>
       </section>
 
-      {/* Projects Section */}
-      <section id="projects" className="py-20 px-6 bg-slate-50">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-slate-800 mb-4">Projets</h2>
-            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-              Une sélection de mes réalisations techniques démontrant mon expertise en développement 
-              full-stack, data science et technologies émergentes.
-            </p>
-          </div>
+      // Projects Section - CORRECTION
+<section id="projects" className="py-20 px-6 bg-slate-50">
+  <div className="max-w-6xl mx-auto">
+    <div className="text-center mb-16">
+      <h2 className="text-4xl font-bold text-slate-800 mb-4">Projets</h2>
+      <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+        Une sélection de mes réalisations techniques démontrant mon expertise en développement 
+        full-stack, data science et technologies émergentes.
+      </p>
+    </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {projects.map((project, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-200 hover:shadow-xl transition-all hover:-translate-y-2"
-              >
-                <div className="p-6">
-                  {
-  title: 'Prédiction du Diabète - Machine Learning',
-  description: 'Analyse complète d\'un dataset médical avec techniques avancées de data mining. Développement de modèles prédictifs pour identifier les facteurs de risque du diabète, avec Random Forest atteignant un F1-score de 0.8845.',
-  tags: ['Python', 'Machine Learning', 'Data Mining', 'Random Forest', 'XGBoost', 'Data Analysis', 'CRISP-DM'],
-  github: 'https://github.com/yaelaya/Diabetes-Prediction-NLP',
-  images: [
-    `${MEDIA_BASE_URL}/NLP/1.jpeg`,
-    `${MEDIA_BASE_URL}/NLP/2.jpeg`
-  ],
-  featured: true,  // ← ICI il est marqué comme featured
-  status: 'Projet Académique Complet',
-  period: 'Projet Data Mining - 2025',
-  icon: Brain,
-  color: 'from-orange-500 to-red-500'
-}
-
-                  {project.status && (
-                    <div className="inline-block bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-medium mb-3">
-                      {project.status}
-                    </div>
-                  )}
-                  
-                  {project.period && (
-                    <p className="text-sm text-slate-500 mb-3 font-medium">{project.period}</p>
-                  )}
-
-                  {/* Affichage des médias */}
-                  {project.video && (
-                    <VideoPlayer videoUrl={project.video} title={project.title} />
-                  )}
-                  
-                  {project.images && (
-                    <ImageSlider images={project.images} title={project.title} />
-                  )}
-
-                  <p className="text-slate-600 mb-6 leading-relaxed">
-                    {project.description}
-                  </p>
-
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {project.tags.map((tag, idx) => (
-                      <span
-                        key={idx}
-                        className="px-3 py-1 bg-slate-100 text-slate-700 rounded-lg text-sm font-medium border border-slate-300"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Bouton Code Source seulement si GitHub existe */}
-                  {project.github && (
-                    <div className="flex gap-3">
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-slate-800 text-white rounded-xl hover:bg-slate-700 transition-all font-medium"
-                      >
-                        <Github className="w-4 h-4" />
-                        Code Source
-                      </a>
-                    </div>
-                  )}
-                </div>
+    <div className="grid md:grid-cols-2 gap-8">
+      {projects.map((project, index) => (
+        <div
+          key={index}
+          className="bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-200 hover:shadow-xl transition-all hover:-translate-y-2"
+        >
+          <div className="p-6">
+            {/* SUPPRIMER L'OBJET MAL PLACÉ ET CORRIGER LE JSX */}
+            <div className="flex items-center gap-3 mb-4">
+              <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${project.color} flex items-center justify-center`}>
+                <project.icon className="w-6 h-6 text-white" />
               </div>
-            ))}
+              <div>
+                <h3 className="text-xl font-bold text-slate-800">{project.title}</h3>
+                {project.featured && (
+                  <div className="flex items-center gap-1 mt-1">
+                    <Star className="w-4 h-4 text-yellow-500 fill-current" />
+                    <span className="text-sm text-slate-500">Projet vedette</span>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {project.status && (
+              <div className="inline-block bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-medium mb-3">
+                {project.status}
+              </div>
+            )}
+            
+            {project.period && (
+              <p className="text-sm text-slate-500 mb-3 font-medium">{project.period}</p>
+            )}
+
+            {/* Affichage des médias */}
+            {project.video && (
+              <VideoPlayer videoUrl={project.video} title={project.title} />
+            )}
+            
+            {project.images && (
+              <ImageSlider images={project.images} title={project.title} />
+            )}
+
+            <p className="text-slate-600 mb-6 leading-relaxed">
+              {project.description}
+            </p>
+
+            <div className="flex flex-wrap gap-2 mb-6">
+              {project.tags.map((tag, idx) => (
+                <span
+                  key={idx}
+                  className="px-3 py-1 bg-slate-100 text-slate-700 rounded-lg text-sm font-medium border border-slate-300"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+
+            {/* Bouton Code Source seulement si GitHub existe */}
+            {project.github && (
+              <div className="flex gap-3">
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-slate-800 text-white rounded-xl hover:bg-slate-700 transition-all font-medium"
+                >
+                  <Github className="w-4 h-4" />
+                  Code Source
+                </a>
+              </div>
+            )}
           </div>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* Contact Section */}
       <section id="contact" className="py-20 px-6">
