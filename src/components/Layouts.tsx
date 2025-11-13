@@ -259,102 +259,103 @@ export default function Layouts() {
   }, [zoomedMedia]);
 
   // Composant VideoPlayer amélioré avec fallback
-  const VideoPlayer = ({ videoUrl, title }: { videoUrl: string; title: string }) => {
-    const [isPlaying, setIsPlaying] = useState(false);
-    const [hasError, setHasError] = useState(false);
-    const [isLoading, setIsLoading] = useState(true);
-    const videoRef = useRef<HTMLVideoElement>(null);
+  // Composant VideoPlayer amélioré avec fallback - CORRECTION
+const VideoPlayer = ({ videoUrl }: { videoUrl: string; title: string }) => {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [hasError, setHasError] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
-    useEffect(() => {
-      const video = videoRef.current;
-      if (!video) return;
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
 
-      const handleLoadStart = () => setIsLoading(true);
-      const handleCanPlay = () => setIsLoading(false);
-      const handleError = () => {
-        setIsLoading(false);
-        setHasError(true);
-        console.error(`Erreur de chargement vidéo: ${videoUrl}`);
-      };
-
-      video.addEventListener('loadstart', handleLoadStart);
-      video.addEventListener('canplay', handleCanPlay);
-      video.addEventListener('error', handleError);
-
-      return () => {
-        video.removeEventListener('loadstart', handleLoadStart);
-        video.removeEventListener('canplay', handleCanPlay);
-        video.removeEventListener('error', handleError);
-      };
-    }, [videoUrl]);
-
-    const handlePlay = () => setIsPlaying(true);
-    const handleVideoClick = (e: React.MouseEvent) => {
-      e.preventDefault();
-      e.stopPropagation();
-      openZoom('video', videoUrl);
+    const handleLoadStart = () => setIsLoading(true);
+    const handleCanPlay = () => setIsLoading(false);
+    const handleError = () => {
+      setIsLoading(false);
+      setHasError(true);
+      console.error(`Erreur de chargement vidéo: ${videoUrl}`);
     };
 
-    if (hasError) {
-      return (
-        <div className="h-48 mb-4 rounded-lg bg-slate-100 flex flex-col items-center justify-center text-slate-500 p-4">
-          <div className="text-center">
-            <Play className="w-8 h-8 mx-auto mb-2 opacity-50" />
-            <p className="text-sm font-medium mb-2">Vidéo non disponible</p>
-            <p className="text-xs mb-3">Problème de chargement</p>
-            <a
-              href={videoUrl}
-              download
-              className="inline-flex items-center gap-1 px-3 py-1 bg-slate-200 rounded text-xs hover:bg-slate-300 transition-colors"
-            >
-              <Download className="w-3 h-3" />
-              Télécharger la vidéo
-            </a>
-          </div>
-        </div>
-      );
-    }
+    video.addEventListener('loadstart', handleLoadStart);
+    video.addEventListener('canplay', handleCanPlay);
+    video.addEventListener('error', handleError);
 
+    return () => {
+      video.removeEventListener('loadstart', handleLoadStart);
+      video.removeEventListener('canplay', handleCanPlay);
+      video.removeEventListener('error', handleError);
+    };
+  }, [videoUrl]);
+
+  const handlePlay = () => setIsPlaying(true);
+  const handleVideoClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    openZoom('video', videoUrl);
+  };
+
+  if (hasError) {
     return (
-      <div className="relative h-48 mb-4 rounded-lg overflow-hidden bg-slate-100 group">
-        {isLoading && (
-          <div className="absolute inset-0 flex items-center justify-center bg-slate-200">
-            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-slate-600"></div>
-          </div>
-        )}
-        
-        <video
-          ref={videoRef}
-          className="w-full h-full object-cover cursor-pointer"
-          controls
-          preload="metadata"
-          onPlay={handlePlay}
-          onClick={handleVideoClick}
-        >
-          <source src={videoUrl} type="video/mp4" />
-          Votre navigateur ne supporte pas la lecture de vidéos.
-        </video>
-        
-        <button
-          onClick={handleVideoClick}
-          className="absolute top-2 right-2 bg-black/50 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-black/70"
-        >
-          <Maximize2 className="w-4 h-4" />
-        </button>
-
-        {!isPlaying && !isLoading && (
-          <div 
-            className="absolute inset-0 flex items-center justify-center bg-black/20 cursor-pointer"
-            onClick={handleVideoClick}
+      <div className="h-48 mb-4 rounded-lg bg-slate-100 flex flex-col items-center justify-center text-slate-500 p-4">
+        <div className="text-center">
+          <Play className="w-8 h-8 mx-auto mb-2 opacity-50" />
+          <p className="text-sm font-medium mb-2">Vidéo non disponible</p>
+          <p className="text-xs mb-3">Problème de chargement</p>
+          <a
+            href={videoUrl}
+            download
+            className="inline-flex items-center gap-1 px-3 py-1 bg-slate-200 rounded text-xs hover:bg-slate-300 transition-colors"
           >
-            <div className="bg-black/50 rounded-full p-3 backdrop-blur-sm">
-              <Play className="w-6 h-6 text-white fill-current" />
-            </div>
-          </div>
-        )}
+            <Download className="w-3 h-3" />
+            Télécharger la vidéo
+          </a>
+        </div>
       </div>
     );
-  };
+  }
+
+  return (
+    <div className="relative h-48 mb-4 rounded-lg overflow-hidden bg-slate-100 group">
+      {isLoading && (
+        <div className="absolute inset-0 flex items-center justify-center bg-slate-200">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-slate-600"></div>
+        </div>
+      )}
+      
+      <video
+        ref={videoRef}
+        className="w-full h-full object-cover cursor-pointer"
+        controls
+        preload="metadata"
+        onPlay={handlePlay}
+        onClick={handleVideoClick}
+      >
+        <source src={videoUrl} type="video/mp4" />
+        Votre navigateur ne supporte pas la lecture de vidéos.
+      </video>
+      
+      <button
+        onClick={handleVideoClick}
+        className="absolute top-2 right-2 bg-black/50 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-black/70"
+      >
+        <Maximize2 className="w-4 h-4" />
+      </button>
+
+      {!isPlaying && !isLoading && (
+        <div 
+          className="absolute inset-0 flex items-center justify-center bg-black/20 cursor-pointer"
+          onClick={handleVideoClick}
+        >
+          <div className="bg-black/50 rounded-full p-3 backdrop-blur-sm">
+            <Play className="w-6 h-6 text-white fill-current" />
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
 
   // Composant ImageSlider amélioré
   const ImageSlider = ({ images, title }: { images: string[]; title: string }) => {
