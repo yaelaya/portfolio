@@ -801,7 +801,7 @@ export default function Layouts() {
   title: 'Prédiction du Diabète - Machine Learning',
   description: 'Analyse complète d\'un dataset médical avec techniques avancées de data mining. Développement de modèles prédictifs pour identifier les facteurs de risque du diabète, avec Random Forest atteignant un F1-score de 0.8845.',
   tags: ['Python', 'Machine Learning', 'Data Mining', 'Random Forest', 'XGBoost', 'Data Analysis', 'CRISP-DM'],
-  github: 'https://github.com/yaelaya/diabetes-prediction-ml',
+  github: 'https://github.com/yaelaya/Diabetes-Prediction-NLP',
   images: [
     `${MEDIA_BASE_URL}/NLP/1.jpeg`,
     `${MEDIA_BASE_URL}/NLP/2.jpeg`
