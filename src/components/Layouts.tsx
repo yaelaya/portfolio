@@ -604,7 +604,7 @@ const VideoPlayer = ({ videoUrl }: { videoUrl: string; title: string }) => {
 
             <div className="flex items-center gap-3">
               <a
-                href={`${MEDIA_BASE_URL}/CV_EL ABIDI Aya.pdf`}
+                href={`${MEDIA_BASE_URL}/CV_EL ABIDI Aya_.pdf`}
                 download="CV_Aya_EL_ABIDI.pdf"
                 className="flex items-center gap-2 px-4 py-2 bg-slate-800 text-white rounded-lg hover:bg-slate-700 transition-colors text-sm font-medium"
               >
