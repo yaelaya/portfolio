@@ -604,7 +604,7 @@ const VideoPlayer = ({ videoUrl }: { videoUrl: string; title: string }) => {
 
             <div className="flex items-center gap-3">
               <a
-                href={`${MEDIA_BASE_URL}/CV_.pdf`}
+                href={`${MEDIA_BASE_URL}/CV_EL ABIDI Aya.pdf`}
                 download="CV_Aya_EL_ABIDI.pdf"
                 className="flex items-center gap-2 px-4 py-2 bg-slate-800 text-white rounded-lg hover:bg-slate-700 transition-colors text-sm font-medium"
               >
@@ -780,7 +780,7 @@ const VideoPlayer = ({ videoUrl }: { videoUrl: string; title: string }) => {
         </div>
       </section>
 
-      // Projects Section - CORRECTION
+
 <section id="projects" className="py-20 px-6 bg-slate-50">
   <div className="max-w-6xl mx-auto">
     <div className="text-center mb-16">
